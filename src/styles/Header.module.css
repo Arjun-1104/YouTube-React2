@@ -1,0 +1,10 @@
+.container:focus-within {
+  border: 1.5px solid blue;
+}
+.searchSmall {
+  display: none;
+}
+
+.container:focus-within .searchSmall {
+  display: block;
+}
