@@ -32,7 +32,7 @@ const VideoCart = ({item}) => {
 
   return (
     <div>
-      <div className="relative w-full h-54">
+      <div className="relative w-full h-54 ">
         <img
           src={item?.snippet?.thumbnails?.high?.url}
           alt=""

@@ -26,7 +26,7 @@ const App = () => {
   return (
     <div className="">
       <RouterProvider router={appRouter} >
-        <Header></Header>
+        {/* <Header></Header> */}
       </RouterProvider>
     </div>
   );

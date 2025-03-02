@@ -11,6 +11,8 @@ export const appSlice = createSlice({
     category: "All",
     channelPic: girl,
     searchSuggestion: [],
+    inputText: '',
+    showSearchData: '',
   },
   reducers: {
     handleOpenSidebar: (state) => {
@@ -34,12 +36,21 @@ export const appSlice = createSlice({
     },
     showSearchSuggestion: (state,action) => {
       state.searchSuggestion = action.payload;
+    },
+    setInputText: (state,action) => {
+      state.inputText = action.payload;
+    },
+    setShowSearchData: (state,action) => {
+      state.category = action.payload;
+      state.inputText = action.payload;
+      state.showSearchData = action.payload;
     }
+
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { handleOpenSidebar, hadleActiveSidebar, setVideos, setCategory,setChannelPic, showSearchSuggestion } =
+export const { handleOpenSidebar, hadleActiveSidebar, setVideos, setCategory,setChannelPic, showSearchSuggestion,setInputText,setShowSearchData } =
   appSlice.actions;
 
 export default appSlice.reducer;

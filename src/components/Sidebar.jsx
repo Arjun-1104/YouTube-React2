@@ -27,6 +27,7 @@ import { CiSettings } from "react-icons/ci";
 import { MdOutlineOutlinedFlag } from "react-icons/md";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { BsFillChatLeftHeartFill } from "react-icons/bs";
+import { FaRegCircleUser } from "react-icons/fa6";
 
 import youtube from "../assets/Youtube.png";
 import y_studio from "../assets/YouTube Studio.png";
@@ -106,6 +107,9 @@ const Sidebar = () => {
     { icon: <MdHome size={"24px"}/>, title: "Home" },
     { icon: <SiYoutubeshorts size={"24px"} />, title: "Shorts" },
     { icon: <MdSubscriptions size={"24px"} />, title: "Subscriptions" },
+    { icon: <FaRegCircleUser size={"24px"} />, title: "You" },
+    { icon: <GoDownload size={"24px"} />, title: "Downloads" },
+
   ]
 
   const renderCloseSidebarItems = (arr) => {
