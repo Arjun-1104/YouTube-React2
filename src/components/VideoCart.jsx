@@ -10,7 +10,7 @@ import girl from "../assets/girl.jpeg";
 
 
 const VideoCart = ({item}) => {
-  const {channelPic,category} = useSelector((store) => store.app);
+  const {channelPic,category,theme} = useSelector((store) => store.app);
   const dispatch = useDispatch();
 
   const youtubeChannelName = async () => {
@@ -24,15 +24,13 @@ const VideoCart = ({item}) => {
     }
   }
 
-  // console.log(channelPic)
-
   useEffect(()=>{
     youtubeChannelName()
   },[category])
 
   return (
     <div>
-      <div className="relative w-full h-54 ">
+      <div className="relative w-full h-54">
         <img
           src={item?.snippet?.thumbnails?.high?.url}
           alt=""
@@ -48,14 +46,14 @@ const VideoCart = ({item}) => {
           ></img>
         </div>
         <div className="w-[80%] px-1">
-          <h2 className="font-medium mb-1">
+          <h2 className={`${theme?'text-white':'text-black'} font-medium mb-1 `}> 
             {item?.snippet?.title.length > 70 ? `${item?.snippet?.title.slice(0, 70)}...` : item?.snippet?.title}
           </h2>
 
-          <div className="flex items-center text-sm text-gray-700 gap-1">
+          <div className={`${theme?'text-white/60':'text-gray-700'} flex items-center text-sm  gap-1`}>
             <p>{item?.snippet?.channelTitle}</p> <PiCheckCircleFill />
           </div>
-          <p className=" flex items-center text-sm text-gray-700">
+          <p className={`${theme?'text-white/60':'text-gray-700'} flex items-center text-sm `}>
             {formatviews((item?.statistics?.viewCount) || 0)} views
             <LuDot size={"20px"} /> {timeAgo(item?.snippet?.publishedAt)}
           </p>

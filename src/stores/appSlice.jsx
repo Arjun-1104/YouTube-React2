@@ -13,6 +13,8 @@ export const appSlice = createSlice({
     searchSuggestion: [],
     inputText: '',
     showSearchData: '',
+    offlinePage: false,
+    theme: false,
   },
   reducers: {
     handleOpenSidebar: (state) => {
@@ -44,13 +46,19 @@ export const appSlice = createSlice({
       state.category = action.payload;
       state.inputText = action.payload;
       state.showSearchData = action.payload;
+    },
+    setOfflinePage: (state,action) => {
+      state.offlinePage = action.payload;
+    },
+    setTheme: (state,action) => {
+      {console.log(action.payload)}
+      state.theme = action.payload;
     }
-
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { handleOpenSidebar, hadleActiveSidebar, setVideos, setCategory,setChannelPic, showSearchSuggestion,setInputText,setShowSearchData } =
+export const { handleOpenSidebar, hadleActiveSidebar, setVideos, setCategory,setChannelPic, showSearchSuggestion,setInputText,setShowSearchData, setOfflinePage, setTheme } =
   appSlice.actions;
 
 export default appSlice.reducer;

@@ -10,4 +10,34 @@
 }
 .no-scrollbar::-webkit-scrollbar {
     display: none;
-  }
+}
+
+.darkSidebarScrollbar::-webkit-scrollbar {
+    width: 8px;
+    background-color: black;
+    
+}
+
+.darkSidebarScrollbar::-webkit-scrollbar-track {
+    background-color: black;
+
+}
+/* .darkSidebarScrollbar::-webkit-scrollbar-button{
+    background-color: white;
+} */
+
+.darkSidebarScrollbar::-webkit-scrollbar-thumb{
+    background-color: rgba(96, 92, 92,0.9);
+}
+.darkSidebarScrollbar:not(:hover)::-webkit-scrollbar, .lightSideScrollbar:not(:hover)::-webkit-scrollbar {
+    display: none;
+}
+
+.lightSideScrollbar:hover::-webkit-scrollbar {
+    width: 8px;
+    background-color: white;
+    
+}
+.lightSideScrollbar::-webkit-scrollbar-thumb{
+    background-color: rgba(96, 92, 92,0.7);
+}

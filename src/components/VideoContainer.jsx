@@ -1,21 +1,26 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import VideoCart from "./VideoCart";
 import { YOUTUBE_VIDEO_API, API_KEY } from "../constants/Youtube";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setVideos } from "../stores/appSlice";
+import { setVideos, setOfflinePage } from "../stores/appSlice";
 
 const VideoContainer = () => {
-const {videos,category} = useSelector((store) => store.app);
+  const {videos,category,offlinePage} = useSelector((store) => store.app);
+
   const dispatch = useDispatch();
 
   const fetchYoutubeVideo = async () => {
     try {
       const res = await fetch(`${YOUTUBE_VIDEO_API}`);
       const data = await res.json();
+      dispatch(setOfflinePage(false));
       dispatch(setVideos(data?.items));
     } catch (error) {
       console.log(error);
+      if(!offlinePage){
+        dispatch(setOfflinePage(true));
+      }      
     }
   };
 
@@ -28,6 +33,7 @@ const {videos,category} = useSelector((store) => store.app);
       console.log(data);
       dispatch(setVideos(data?.items));
     } catch (error) {
+      
       console.log(error);
     }
   };
@@ -41,7 +47,7 @@ const {videos,category} = useSelector((store) => store.app);
   }, [category]);
 
   return (
-    <div className="flex w-[100%] justify-between flex-wrap overflow-y-auto my-5">
+    <div className="flex w-[100%] justify-between flex-wrap overflow-y-auto mt-5">
       {videos.map((item, index) => {
         return (
           <Link
