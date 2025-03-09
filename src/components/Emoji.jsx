@@ -7,4 +7,4 @@ const Emoji = () => {
   )
 }
 
-export default Emoji
+export default Emoji;

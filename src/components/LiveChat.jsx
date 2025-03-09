@@ -34,9 +34,13 @@ const LiveChat = () => {
     // },[])
   }, [chat]);
 
-  const onEmojiClick = (event ,emojiObj) => {
-    setLiveChatInput(prev => prev + emojiObj.emoji)
-    setShowPicker(false)
+  const onEmojiClick = (event) => {
+
+    setLiveChatInput(prev => prev + event.emoji)
+    console.log(event)
+    console.log(event.emoji)
+    // console.log(prev)
+   
   }
 
   const handleLiveChatInput = (value) => {
@@ -53,6 +57,7 @@ const LiveChat = () => {
     ]);
 
     setLiveChatInput("");
+    setShowPicker(false)
   };
 
   return (
